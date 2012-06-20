@@ -3,5 +3,14 @@
 
     <string name="hello">Hello World, Timekeep!</string>
     <string name="app_name">Time Keep</string>
+    <string-array name="countries">
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+    </string-array>
 
 </resources>
