@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editLayout" android:layout_height="fill_parent"
+    android:layout_width="fill_parent" android:orientation="vertical">
+
+    <TableLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:fitsSystemWindows="true"
+        android:orientation="horizontal" android:padding="5dp" gravity="center_horizontal">
+
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="fill_parent" android:gravity="center_horizontal">
+
+            <TextView android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:id="@+id/nameLabel"
+                android:text="@string/nameLabel" android:gravity="right|center_vertical"
+                android:layout_marginRight="5dp" />
+
+            <EditText android:layout_height="fill_parent" android:id="@+id/itemField"
+                android:layout_width="fill_parent" android:width="200dp" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="fill_parent" android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/timesLabel"
+            android:text="@string/timesLabel" android:gravity="right|center_vertical"
+            android:layout_marginRight="5dp" />
+
+        <EditText android:text="1" android:id="@+id/timesField" 
+            android:width="100dp" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:digits="0123456789" />
+    </LinearLayout>
+</LinearLayout>

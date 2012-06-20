@@ -1,20 +1,17 @@
 package com.gagege.timekeep;
 
-import java.util.Arrays;
-import java.util.List;
-
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.EditText;
 
 public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
@@ -30,8 +27,7 @@ public class Timekeep extends ListActivity {
     {
         super.onCreate(savedInstanceState);
 
-        dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-            R.id.itemName);
+        dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
         dataAdapter.add("apple");
         dataAdapter.add("orange");
         dataAdapter.add("tomato");
@@ -44,11 +40,11 @@ public class Timekeep extends ListActivity {
     {
         Resources resource = getApplicationContext().getResources();
         menu.add(Menu.NONE, ADD_ITEM, ADD_ITEM,
-            resource.getText(R.string.ADD_ITEM)).setIcon(R.drawable.add);
+            resource.getText(R.string.ADD_ITEM)).setIcon(android.R.drawable.ic_input_add);
         menu.add(Menu.NONE, REMOVE_ITEM, REMOVE_ITEM,
-            resource.getText(R.string.REMOVE_ITEM)).setIcon(R.drawable.remove);
+            resource.getText(R.string.REMOVE_ITEM)).setIcon(android.R.drawable.ic_input_delete);
         menu.add(Menu.NONE, EXIT_ITEM, EXIT_ITEM,
-            resource.getText(R.string.EXIT_ITEM)).setIcon(R.drawable.exit);
+            resource.getText(R.string.EXIT_ITEM)).setIcon(android.R.drawable.ic_menu_close_clear_cancel);
         return true;
     }
 
@@ -115,7 +111,7 @@ public class Timekeep extends ListActivity {
                 }
             });
 
-        builder.setNegativeButton(R.string.cancelButtonLabel,
+        builder.setNegativeButton(android.R.string.cancel,
             new DialogInterface.OnClickListener()
             {
 

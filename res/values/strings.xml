@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="applicationName">String List</string>
 
-    <string name="hello">Hello World, Timekeep!</string>
-    <string name="app_name">Time Keep</string>
-    <string-array name="countries">
-        <item>Bahrain</item>
-        <item>Bangladesh</item>
-        <item>Barbados</item>
-        <item>Belarus</item>
-        <item>Belgium</item>
-        <item>Belize</item>
-        <item>Benin</item>
-    </string-array>
+    <string name="priceFormat">{0,number, currency}</string>
 
+    <!-- Options menu -->
+    <string name="ADD_ITEM">Add to End</string>
+    <string name="REMOVE_ITEM">Remove Last</string>
+    <string name="EXIT_ITEM">Exit</string>
+
+    <!-- Parameters for the "Add Item" dialog -->
+    <string name="addDialogTitle">Add Item</string>
+    <string name="nameLabel">Item </string>
+    <string name="priceLabel">Price </string>
+    <string name="timesLabel">Times</string>
+
+    <!-- Labels for the button -->
+    <string name="addButtonLabel">Add</string>
+    <string name="cancelButtonLabel">Cancel</string>
 </resources>
