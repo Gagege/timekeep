@@ -22,7 +22,7 @@
     <string name="hoursTitle">Hours</string>
     <string name="projectTitle">Project</string>
     <string name="clientTitle">Client</string>
-    <string name="doneButtonText">Done</string>
+    <string name="done">Done</string>
     <string name="sampleDate">01/01/2000</string>
     <string name="notesTitle">Notes</string>
 </resources>
