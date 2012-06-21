@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="applicationName">String List</string>
+    <string name="applicationName">Time Keep</string>
 
     <string name="priceFormat">{0,number, currency}</string>
 
     <!-- Options menu -->
-    <string name="ADD_ITEM">Add to End</string>
+    <string name="ADD_ITEM">Add Entry</string>
     <string name="REMOVE_ITEM">Remove Last</string>
     <string name="EXIT_ITEM">Exit</string>
 
@@ -18,4 +18,5 @@
     <!-- Labels for the button -->
     <string name="addButtonLabel">Add</string>
     <string name="cancelButtonLabel">Cancel</string>
+    <string name="defaultItem">Jaycember 55, 7373</string>
 </resources>

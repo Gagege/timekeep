@@ -1,17 +1,21 @@
 package com.gagege.timekeep;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
+import java.text.DateFormat;
+import java.util.Date;
+
 import android.app.ListActivity;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
@@ -19,7 +23,6 @@ public class Timekeep extends ListActivity {
     private static final int EXIT_ITEM = 2;
 
     private ArrayAdapter<String> dataAdapter;
-    private Dialog editorDialog = null;
 
     /** Called when the activity is first created. */
     @Override
@@ -28,11 +31,22 @@ public class Timekeep extends ListActivity {
         super.onCreate(savedInstanceState);
 
         dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
-        dataAdapter.add("apple");
-        dataAdapter.add("orange");
-        dataAdapter.add("tomato");
 
         setListAdapter(dataAdapter);
+        
+        ListView lv = getListView();
+        lv.setTextFilterEnabled(true);
+
+        lv.setOnItemClickListener(new OnItemClickListener() {
+		      public void onItemClick(AdapterView<?> parent, View view,
+		          int position, long id) {
+		        // When clicked, show a toast with the TextView text
+		    	  Context c = getApplicationContext();
+		    	  CharSequence text = ((TextView) view.findViewById(R.id.itemName)).getText();
+		    	  Toast.makeText(c, text,
+		    			  Toast.LENGTH_SHORT).show();
+		      }
+        });
     }
 
     @Override
@@ -54,7 +68,7 @@ public class Timekeep extends ListActivity {
         switch (item.getItemId())
         {
         case ADD_ITEM:
-            showDialog(0);
+            dataAdapter.add(DateFormat.getDateInstance().format(new Date()));
             break;
         case REMOVE_ITEM:
             dataAdapter.remove(dataAdapter.getItem(dataAdapter.getCount() - 1));
@@ -63,64 +77,5 @@ public class Timekeep extends ListActivity {
             finish();
         }
         return false;
-    }
-
-    @Override
-    protected Dialog onCreateDialog(int id)
-    {
-        Dialog editor = editorDialog;
-        if (editorDialog == null)
-        {
-            editor = createEditorDialog();
-        }
-        return editor;
-    }
-
-    private Dialog createEditorDialog()
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.addDialogTitle);
-
-        View content = getLayoutInflater().inflate(R.layout.editor,
-            (ViewGroup) findViewById(R.id.editLayout));
-        builder.setView(content);
-        builder.setPositiveButton(R.string.addButtonLabel,
-            new DialogInterface.OnClickListener()
-            {
-
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Dialog source = (Dialog) dialog;
-                    EditText nameField = (EditText) source
-                        .findViewById(R.id.itemField);
-                    String name = nameField.getText().toString();
-
-                    EditText timesField = (EditText) source
-                        .findViewById(R.id.timesField);
-                    Integer times = Integer.valueOf(timesField.getText()
-                        .toString());
-
-                    if ((name.length() > 0) && (times > 0))
-                    {
-                        for (int count = 0; count < times; count++)
-                        {
-                            dataAdapter.add(name);
-                        }
-                    }
-                    dialog.dismiss();
-                }
-            });
-
-        builder.setNegativeButton(android.R.string.cancel,
-            new DialogInterface.OnClickListener()
-            {
-
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    dialog.dismiss();
-                }
-            });
-
-        return builder.create();
     }
 }

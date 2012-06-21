@@ -41,6 +41,7 @@ public final class R {
         public static final int addDialogTitle=0x7f040005;
         public static final int applicationName=0x7f040000;
         public static final int cancelButtonLabel=0x7f04000a;
+        public static final int defaultItem=0x7f04000b;
         public static final int nameLabel=0x7f040006;
         public static final int priceFormat=0x7f040001;
         public static final int priceLabel=0x7f040007;
