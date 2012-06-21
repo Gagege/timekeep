@@ -18,7 +18,6 @@ import android.widget.ListView;
 public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
     private static final int REMOVE_ITEM = 1;
-    private static final int EXIT_ITEM = 2;
 
     private ArrayAdapter<String> dataAdapter;
 
@@ -52,8 +51,6 @@ public class Timekeep extends ListActivity {
             resource.getText(R.string.ADD_ITEM)).setIcon(android.R.drawable.ic_input_add);
         menu.add(Menu.NONE, REMOVE_ITEM, REMOVE_ITEM,
             resource.getText(R.string.REMOVE_ITEM)).setIcon(android.R.drawable.ic_input_delete);
-        menu.add(Menu.NONE, EXIT_ITEM, EXIT_ITEM,
-            resource.getText(R.string.EXIT_ITEM)).setIcon(android.R.drawable.ic_menu_close_clear_cancel);
         return true;
     }
 
@@ -68,8 +65,6 @@ public class Timekeep extends ListActivity {
         case REMOVE_ITEM:
             dataAdapter.remove(dataAdapter.getItem(dataAdapter.getCount() - 1));
             break;
-        case EXIT_ITEM:
-            finish();
         }
         return false;
     }

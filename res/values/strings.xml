@@ -7,7 +7,6 @@
     <!-- Options menu -->
     <string name="ADD_ITEM">Add Entry</string>
     <string name="REMOVE_ITEM">Remove Last</string>
-    <string name="EXIT_ITEM">Exit</string>
 
     <!-- Parameters for the "Add Item" dialog -->
     <string name="addDialogTitle">Add Item</string>
