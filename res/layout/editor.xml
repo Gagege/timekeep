@@ -1,36 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/editLayout" android:layout_height="fill_parent"
-    android:layout_width="fill_parent" android:orientation="vertical">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
-    <TableLayout android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:fitsSystemWindows="true"
-        android:orientation="horizontal" android:padding="5dp" gravity="center_horizontal">
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
-        <TableRow android:layout_width="wrap_content"
-            android:layout_height="fill_parent" android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/hoursTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="@string/hoursTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView android:layout_width="fill_parent"
-                android:layout_height="fill_parent" android:id="@+id/nameLabel"
-                android:text="@string/nameLabel" android:gravity="right|center_vertical"
-                android:layout_marginRight="5dp" />
+    <EditText
+        android:id="@+id/hoursEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.27"
+        android:digits="0123456789"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:width="100dp" >
 
-            <EditText android:layout_height="fill_parent" android:id="@+id/itemField"
-                android:layout_width="fill_parent" android:width="200dp" />
-        </TableRow>
-    </TableLayout>
+        <requestFocus />
+    </EditText>
 
-    <LinearLayout android:layout_height="wrap_content"
-        android:layout_width="fill_parent" android:orientation="horizontal"
-        android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/projectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="@string/projectTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/projectEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:digits="0123456789"
+        android:inputType="text|textAutoCorrect"
+        android:width="100dp" >
 
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/timesLabel"
-            android:text="@string/timesLabel" android:gravity="right|center_vertical"
-            android:layout_marginRight="5dp" />
+    </EditText>
 
-        <EditText android:text="1" android:id="@+id/timesField" 
-            android:width="100dp" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:digits="0123456789" />
-    </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/clientTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="@string/clientTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/clientEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789"
+        android:inputType="text|textAutoCorrect"
+        android:width="100dp" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/notesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="@string/notesTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/notesEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:digits="0123456789"
+        android:inputType="text|textMultiLine"
+        android:width="100dp" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/doneButtonText" />
+
+</TableLayout>

@@ -19,4 +19,11 @@
     <string name="addButtonLabel">Add</string>
     <string name="cancelButtonLabel">Cancel</string>
     <string name="defaultItem">Jaycember 55, 7373</string>
+    <string name="dateTitle">Date</string>
+    <string name="hoursTitle">Hours</string>
+    <string name="projectTitle">Project</string>
+    <string name="clientTitle">Client</string>
+    <string name="doneButtonText">Done</string>
+    <string name="sampleDate">01/01/2000</string>
+    <string name="notesTitle">Notes</string>
 </resources>

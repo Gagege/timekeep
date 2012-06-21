@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import android.app.ListActivity;
-import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,8 +14,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
@@ -40,11 +38,8 @@ public class Timekeep extends ListActivity {
         lv.setOnItemClickListener(new OnItemClickListener() {
 		      public void onItemClick(AdapterView<?> parent, View view,
 		          int position, long id) {
-		        // When clicked, show a toast with the TextView text
-		    	  Context c = getApplicationContext();
-		    	  CharSequence text = ((TextView) view.findViewById(R.id.itemName)).getText();
-		    	  Toast.makeText(c, text,
-		    			  Toast.LENGTH_SHORT).show();
+		    	  Intent edit = new Intent(view.getContext(), Edit.class);
+		    	  startActivityForResult(edit, 0);
 		      }
         });
     }
