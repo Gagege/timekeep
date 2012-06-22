@@ -21,7 +21,7 @@ public class Database extends SQLiteOpenHelper {
 						+ ENTRIES_TABLE + "("
 			    		+ ID_COLUMN + " integer primary key autoincrement, "
 						+ HOURS_COLUMN + " integer not null, "
-						+ DATE_COLUMN + " date not null, "
+						+ DATE_COLUMN + " int not null, "
 						+ PROJECT_COLUMN + " text, "
 						+ CLIENT_COLUMN + " text, "
 						+ NOTES_COLUMN + " text, "
