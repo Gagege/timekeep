@@ -7,21 +7,21 @@ import android.util.Log;
 
 public class Database extends SQLiteOpenHelper {
 
-	private static final String DATABASE_NAME = "timekeep.db";
+	public static final String DATABASE_NAME = "timekeep.db";
 	private static final int DATABASE_VERSION = 1;
-    private static final String ENTRIES_TABLE = "entries";
-    private static final String ID_COLUMN = "id";
-	private static final String HOURS_COLUMN = "hours";
-	private static final String DATE_COLUMN = "date";
-	private static final String PROJECT_COLUMN = "project";
-	private static final String CLIENT_COLUMN = "client";
-	private static final String NOTES_COLUMN = "notes";
+    public static final String ENTRIES_TABLE = "entries";
+    public static final String ID_COLUMN = "id";
+    public static final String HOURS_COLUMN = "hours";
+    public static final String DATE_COLUMN = "date";
+    public static final String PROJECT_COLUMN = "project";
+    public static final String CLIENT_COLUMN = "client";
+    public static final String NOTES_COLUMN = "notes";
     private static final String CREATE_ENTRIES_TABLE = 
     					"create table "
 						+ ENTRIES_TABLE + "("
 			    		+ ID_COLUMN + " integer primary key autoincrement, "
 						+ HOURS_COLUMN + " integer not null, "
-						+ DATE_COLUMN + " int not null, "
+						+ DATE_COLUMN + " integer not null, "
 						+ PROJECT_COLUMN + " text, "
 						+ CLIENT_COLUMN + " text, "
 						+ NOTES_COLUMN + " text, "
