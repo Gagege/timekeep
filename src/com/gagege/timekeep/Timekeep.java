@@ -20,15 +20,20 @@ public class Timekeep extends ListActivity {
     private static final int REMOVE_ITEM = 1;
 
     private ArrayAdapter<String> dataAdapter;
-
+    private EntryDataSource dataSource;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        
+        dataSource = new EntryDataSource(this);
+        dataSource.open();
 
         dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
 
+        
         setListAdapter(dataAdapter);
         
         ListView lv = getListView();
