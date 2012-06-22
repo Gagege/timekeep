@@ -1,19 +1,17 @@
 package com.gagege.timekeep;
 
-import java.util.Date;
-
 public class Entry {
-	private int id;
+	private long id;
 	private int hours;
-	private Date date;
+	private long date;
 	private String project;
 	private String client;
 	private String notes;
 	
-	public int id() {
+	public long id() {
 		return id;
 	}
-	public void id(int id) {
+	public void id(long id) {
 		this.id = id;
 	}
 	public int hours() {
@@ -22,10 +20,10 @@ public class Entry {
 	public void hours(int hours) {
 		this.hours = hours;
 	}
-	public Date date() {
+	public long date() {
 		return date;
 	}
-	public void date(Date date) {
+	public void date(long date) {
 		this.date = date;
 	}
 	public String project() {
