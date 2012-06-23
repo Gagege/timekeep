@@ -8,7 +8,7 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/applicationName" >
+        android:label="@string/applicationName" android:debuggable="true">
         <activity
             android:name=".Timekeep"
             android:label="@string/applicationName" >
@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Edit"></activity>
+        <activity android:name=".Create"></activity>
     </application>
 
 </manifest>

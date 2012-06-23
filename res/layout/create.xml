@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_horizontal|top"
+    android:layout_margin="8dp"
+    android:orientation="vertical" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left" >
+
+        <EditText
+            android:id="@+id/hoursTextEdit"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ems="10"
+            android:hint="@string/hoursTitle"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/dateTextEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/dateTitle"
+            android:inputType="date" >
+        </EditText>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    <EditText
+        android:id="@+id/projectTextEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/projectTitle"
+        android:inputType="text" />
+
+
+
+    <EditText
+        android:id="@+id/clientTextEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/clientTitle"
+        android:inputType="text" />
+
+
+
+
+
+
+
+
+
+    <EditText
+        android:id="@+id/notesTextEdit"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/notesTitle"
+        android:inputType="textMultiLine" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right" >
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/cancel"
+            android:onClick="cancelClick" />
+
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/done"
+            android:onClick="doneClick" />
+
+    </LinearLayout>
+
+</LinearLayout>
