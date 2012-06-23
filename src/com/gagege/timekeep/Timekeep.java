@@ -1,7 +1,6 @@
 package com.gagege.timekeep;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -19,8 +18,8 @@ public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
     private static final int REMOVE_ITEM = 1;
 
-    private ArrayAdapter<String> dataAdapter;
-    private EntryDataSource dataSource;
+    private static ArrayAdapter<String> dataAdapter;
+    private static EntryDataSource dataSource;
     
     /** Called when the activity is first created. */
     @Override
@@ -28,11 +27,16 @@ public class Timekeep extends ListActivity {
     {
         super.onCreate(savedInstanceState);
         
-        dataSource = new EntryDataSource(this);
+        if(null == dataSource)
+        	dataSource = new EntryDataSource(this);
+        
         dataSource.open();
+        List<Entry> entries = dataSource.getAllEntries();
 
-        dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
-
+        if(null == dataAdapter)
+        	dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
+        
+        entriesToArrayAdapter(entries);
         
         setListAdapter(dataAdapter);
         
@@ -43,7 +47,7 @@ public class Timekeep extends ListActivity {
 		      public void onItemClick(AdapterView<?> parent, View view,
 		          int position, long id) {
 		    	  Intent edit = new Intent(view.getContext(), Edit.class);
-		    	  startActivityForResult(edit, 0);
+		    	  startActivity(edit);
 		      }
         });
     }
@@ -53,9 +57,9 @@ public class Timekeep extends ListActivity {
     {
         Resources resource = getApplicationContext().getResources();
         menu.add(Menu.NONE, ADD_ITEM, ADD_ITEM,
-            resource.getText(R.string.ADD_ITEM)).setIcon(android.R.drawable.ic_input_add);
+            resource.getText(R.string.addEntry)).setIcon(android.R.drawable.ic_input_add);
         menu.add(Menu.NONE, REMOVE_ITEM, REMOVE_ITEM,
-            resource.getText(R.string.REMOVE_ITEM)).setIcon(android.R.drawable.ic_input_delete);
+            resource.getText(R.string.removeEntry)).setIcon(android.R.drawable.ic_input_delete);
         return true;
     }
 
@@ -65,7 +69,8 @@ public class Timekeep extends ListActivity {
         switch (item.getItemId())
         {
         case ADD_ITEM:
-            dataAdapter.add(DateFormat.getDateInstance().format(new Date()));
+        	Intent create = new Intent(this.getBaseContext(), Create.class);
+        	startActivity(create);
             break;
         case REMOVE_ITEM:
             dataAdapter.remove(dataAdapter.getItem(dataAdapter.getCount() - 1));
@@ -73,4 +78,23 @@ public class Timekeep extends ListActivity {
         }
         return false;
     }
+
+	@Override
+	protected void onResume() {
+		dataSource.open();
+		super.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		dataSource.close();
+		super.onPause();
+	}
+	
+	private void entriesToArrayAdapter(List<Entry> entries) {
+		for(Entry entry : entries) {
+			if(-1 != dataAdapter.getPosition(entry.prettyDate()))
+				dataAdapter.add(entry.prettyDate());
+		}
+	}
 }
