@@ -24,7 +24,7 @@ public class Database extends SQLiteOpenHelper {
 						+ DATE_COLUMN + " integer not null, "
 						+ PROJECT_COLUMN + " text, "
 						+ CLIENT_COLUMN + " text, "
-						+ NOTES_COLUMN + " text, "
+						+ NOTES_COLUMN + " text "
 			    		+ ");";
     
 	Database(Context context) {
