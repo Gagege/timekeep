@@ -1,5 +1,8 @@
 package com.gagege.timekeep;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class Entry {
 	private long id;
 	private int hours;
@@ -7,6 +10,19 @@ public class Entry {
 	private String project;
 	private String client;
 	private String notes;
+	
+	public Entry(long id, int hours, long date, String project, String client,
+			String notes) {
+		this.id = id;
+		this.hours = hours;
+		this.date = date;
+		this.project = project;
+		this.client = client;
+		this.notes = notes;
+	}
+	
+	public Entry() {
+	}
 	
 	public long id() {
 		return id;
@@ -43,5 +59,9 @@ public class Entry {
 	}
 	public void notes(String notes) {
 		this.notes = notes;
+	}
+	public String prettyDate() {
+		Date d = new Date(date);
+		return DateFormat.getDateInstance().format(d);
 	}
 }
