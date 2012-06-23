@@ -55,12 +55,36 @@
         android:ems="10"
         android:hint="@string/notesTitle"
         android:inputType="textMultiLine" />
-        
-    <Button
-        android:id="@+id/doneButton"
-        android:layout_width="100dp"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/done" />
+        android:layout_gravity="right" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textColor="#FF0000"
+            android:onClick="deleteClick" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/cancel"
+            android:onClick="cancelClick"/>
+
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/done"
+            android:onClick="doneClick" />
+
+    </LinearLayout>
 
 </LinearLayout>

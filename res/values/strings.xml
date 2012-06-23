@@ -2,27 +2,21 @@
 <resources>
     <string name="applicationName">Time Keep</string>
 
-    <string name="priceFormat">{0,number, currency}</string>
-
     <!-- Options menu -->
-    <string name="ADD_ITEM">Add Entry</string>
-    <string name="REMOVE_ITEM">Remove Last</string>
+    <string name="addEntry">Add Entry</string>
+    <string name="removeEntry">Remove Last</string>
 
     <!-- Parameters for the "Add Item" dialog -->
-    <string name="addDialogTitle">Add Item</string>
-    <string name="nameLabel">Item </string>
-    <string name="priceLabel">Price </string>
-    <string name="timesLabel">Times</string>
 
     <!-- Labels for the button -->
-    <string name="addButtonLabel">Add</string>
-    <string name="cancelButtonLabel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
     <string name="defaultItem">Jaycember 55, 7373</string>
     <string name="dateTitle">Date</string>
     <string name="hoursTitle">Hours</string>
     <string name="projectTitle">Project</string>
     <string name="clientTitle">Client</string>
     <string name="done">Done</string>
-    <string name="sampleDate">01/01/2000</string>
     <string name="notesTitle">Notes</string>
+    <string name="delete">Delete</string>
 </resources>
