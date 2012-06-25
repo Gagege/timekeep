@@ -5,32 +5,19 @@
     android:layout_gravity="center|center_horizontal|top"
     android:layout_margin="8dp"
     android:orientation="vertical" >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left" android:id="@+id/hoursTextEdit">
-
+        android:layout_gravity="left">
+
         <EditText
+            android:id="@+id/hoursTextEdit"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:ems="10"
             android:hint="@string/hoursTitle"
-            android:inputType="numberDecimal" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/dateTextEdit"
