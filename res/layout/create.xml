@@ -22,16 +22,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left" >
-
+        android:layout_gravity="left" android:id="@+id/hoursTextEdit">
+
         <EditText
-            android:id="@+id/hoursTextEdit"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:ems="10"
             android:hint="@string/hoursTitle"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/dateTextEdit"
