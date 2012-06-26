@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Entry {
 	private long id;
-	private int hours;
+	private double hours;
 	private long date;
 	private String project;
 	private String client;
@@ -30,10 +30,10 @@ public class Entry {
 	public void id(long id) {
 		this.id = id;
 	}
-	public int hours() {
+	public double hours() {
 		return hours;
 	}
-	public void hours(int hours) {
+	public void hours(double hours) {
 		this.hours = hours;
 	}
 	public long date() {

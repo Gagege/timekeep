@@ -11,14 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class Timekeep extends ListActivity {
     private static final int ADD_ITEM = 0;
     private static final int REMOVE_ITEM = 1;
 
-    private static ArrayAdapter<String> dataAdapter;
+    private static EntryAdapter dataAdapter;
     private static EntryDataSource dataSource;
     
     /** Called when the activity is first created. */
@@ -29,16 +28,6 @@ public class Timekeep extends ListActivity {
         
         if(null == dataSource)
         	dataSource = new EntryDataSource(this);
-        
-        dataSource.open();
-        List<Entry> entries = dataSource.getAllEntries();
-
-        if(null == dataAdapter)
-        	dataAdapter = new ArrayAdapter<String>(this, R.layout.item,R.id.itemName);
-        
-        entriesToArrayAdapter(entries);
-        
-        setListAdapter(dataAdapter);
         
         ListView lv = getListView();
         lv.setTextFilterEnabled(true);
@@ -78,23 +67,27 @@ public class Timekeep extends ListActivity {
         }
         return false;
     }
-
-	@Override
-	protected void onResume() {
-		dataSource.open();
-		super.onResume();
-	}
-
-	@Override
-	protected void onPause() {
-		dataSource.close();
-		super.onPause();
-	}
 	
 	private void entriesToArrayAdapter(List<Entry> entries) {
 		for(Entry entry : entries) {
-			if(-1 != dataAdapter.getPosition(entry.prettyDate()))
-				dataAdapter.add(entry.prettyDate());
+			if(!dataAdapter.hasItem(entry.id()))
+				dataAdapter.add(entry);
 		}
+	}
+	
+	@Override
+	protected void onResume() {
+        dataSource.open();
+        List<Entry> entries = dataSource.getAllEntries();
+        dataSource.close();
+
+        if(null == dataAdapter)
+        	dataAdapter = new EntryAdapter(this, R.layout.item,entries);
+        
+        setListAdapter(dataAdapter);
+        
+        entriesToArrayAdapter(entries);
+        
+        super.onResume();
 	}
 }

@@ -20,7 +20,7 @@ public class Database extends SQLiteOpenHelper {
     					"create table "
 						+ ENTRIES_TABLE + "("
 			    		+ ID_COLUMN + " integer primary key autoincrement, "
-						+ HOURS_COLUMN + " integer not null, "
+						+ HOURS_COLUMN + " real not null, "
 						+ DATE_COLUMN + " integer not null, "
 						+ PROJECT_COLUMN + " text, "
 						+ CLIENT_COLUMN + " text, "

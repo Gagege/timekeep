@@ -77,7 +77,7 @@ public class EntryDataSource {
 	private Entry cursorToEntry(Cursor cursor) {
 		Entry entry = new Entry();
 		entry.id(cursor.getLong(0));
-		entry.hours(cursor.getInt(1));
+		entry.hours(cursor.getDouble(1));
 		entry.date(cursor.getLong(2));
 		entry.project(cursor.getString(3));
 		entry.client(cursor.getString(4));

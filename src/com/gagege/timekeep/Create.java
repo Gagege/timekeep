@@ -10,23 +10,31 @@ import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 
-public class Create extends FragmentActivity{
+public class Create extends FragmentActivity {
+	
+    private static EntryDataSource dataSource;
+    
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create);
         
-        EditText date = (EditText)findViewById(R.id.dateTextEdit);
-        date.setText(DateFormat.getDateInstance().format(new Date()));
+        if(null == dataSource)
+        	dataSource = new EntryDataSource(this);
         
-        EditText hours = (EditText)findViewById(R.id.hoursTextEdit);
+        setupHoursEdit();
+        setupDateEdit();
+    }
+
+	private void setupHoursEdit() {
+		EditText hours = (EditText)findViewById(R.id.hoursTextEdit);
         OnFocusChangeListener focusListener = new OnFocusChangeListener() {
             public void onFocusChange(View view, boolean hasFocus) {
 				EditText hoursView = (EditText) view;
 				String hours = hoursView.getText().toString();
             	if(hasFocus)
 				{
-            		hoursView.setText(hours.replace(" hrs", ""));
+            		hoursView.setText(hoursTextOnlyNumbers(hours));
             		hoursView.selectAll();
 				}
 				else
@@ -37,7 +45,16 @@ public class Create extends FragmentActivity{
             }
         };
         hours.setOnFocusChangeListener(focusListener);
-    }
+	}
+
+	private String hoursTextOnlyNumbers(String hours) {
+		return hours.replace(" hrs", "");
+	}
+
+	private void setupDateEdit() {
+		EditText date = (EditText)findViewById(R.id.dateTextEdit);
+        date.setText(DateFormat.getDateInstance().format(new Date()));
+	}
 	
 	public void showDatePickerDialog(View view) {
 		DialogFragment newFragment = new DatePickerFragment((EditText)findViewById(R.id.dateTextEdit));
@@ -45,6 +62,19 @@ public class Create extends FragmentActivity{
 	}
 	
 	public void cancelClick(View view) {
+		finish();
+	}
+	
+	public void doneClick(View view) {
+		Entry entry = new Entry();
+		entry.hours(Double.parseDouble(hoursTextOnlyNumbers(((EditText)findViewById(R.id.hoursTextEdit)).getText().toString())));
+		entry.date((new Date(((EditText)findViewById(R.id.dateTextEdit)).getText().toString())).getTime());
+		entry.project(((EditText)findViewById(R.id.projectTextEdit)).getText().toString());
+		entry.client(((EditText)findViewById(R.id.clientTextEdit)).getText().toString());
+		entry.notes(((EditText)findViewById(R.id.notesTextEdit)).getText().toString());
+		dataSource.open();
+		dataSource.createEntry(entry);
+		dataSource.close();
 		finish();
 	}
 }

@@ -19,4 +19,5 @@
     <string name="done">Done</string>
     <string name="notesTitle">Notes</string>
     <string name="delete">Delete</string>
+    <string name="defaultItemId">0</string>
 </resources>
