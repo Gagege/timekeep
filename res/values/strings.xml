@@ -11,7 +11,7 @@
     <!-- Labels for the button -->
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
-    <string name="defaultItem">Jaycember 55, 7373</string>
+    <string name="defaultEntryDate">Jaycember 55, 7373</string>
     <string name="dateTitle">Date</string>
     <string name="hoursTitle">Hours</string>
     <string name="projectTitle">Project</string>
@@ -19,5 +19,5 @@
     <string name="done">Done</string>
     <string name="notesTitle">Notes</string>
     <string name="delete">Delete</string>
-    <string name="defaultItemId">0</string>
+    <string name="defaultEntryTitle">Client: Project...</string>
 </resources>
