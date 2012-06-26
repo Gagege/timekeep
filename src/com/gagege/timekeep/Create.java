@@ -39,8 +39,15 @@ public class Create extends FragmentActivity {
 				}
 				else
 				{
-					if(!hours.toString().contains("hrs"))
-						hoursView.setText(hours +" hrs");
+					if(hours.toString() == "")
+					{
+						hoursView.setText("");
+					}
+					else
+					{
+						if(!hours.toString().contains("hrs"))
+							hoursView.setText(hours +" hrs");
+					}
 				}
             }
         };
@@ -67,8 +74,8 @@ public class Create extends FragmentActivity {
 	
 	public void doneClick(View view) {
 		Entry entry = new Entry();
-		entry.hours(Double.parseDouble(hoursTextOnlyNumbers(((EditText)findViewById(R.id.hoursTextEdit)).getText().toString())));
-		entry.date((new Date(((EditText)findViewById(R.id.dateTextEdit)).getText().toString())).getTime());
+		entry.hours(hoursAsDouble());
+		entry.date(dateAsLong());
 		entry.project(((EditText)findViewById(R.id.projectTextEdit)).getText().toString());
 		entry.client(((EditText)findViewById(R.id.clientTextEdit)).getText().toString());
 		entry.notes(((EditText)findViewById(R.id.notesTextEdit)).getText().toString());
@@ -76,5 +83,17 @@ public class Create extends FragmentActivity {
 		dataSource.createEntry(entry);
 		dataSource.close();
 		finish();
+	}
+	
+	private double hoursAsDouble() {
+		String hoursString = hoursTextOnlyNumbers(((EditText)findViewById(R.id.hoursTextEdit))
+				.getText().toString());
+		String stringToParse = ((hoursString.equals("")) ? "0" : hoursString);
+		return Double.parseDouble(stringToParse);
+	}
+	
+	private long dateAsLong() {
+		return (new Date(((EditText)findViewById(R.id.dateTextEdit))
+				.getText().toString())).getTime();
 	}
 }
