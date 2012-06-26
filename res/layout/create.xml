@@ -17,7 +17,7 @@
             android:layout_gravity="left"
             android:ems="10"
             android:hint="@string/hoursTitle"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/dateTextEdit"

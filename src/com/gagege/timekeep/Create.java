@@ -22,14 +22,17 @@ public class Create extends FragmentActivity{
         EditText hours = (EditText)findViewById(R.id.hoursTextEdit);
         OnFocusChangeListener focusListener = new OnFocusChangeListener() {
             public void onFocusChange(View view, boolean hasFocus) {
+				EditText hoursView = (EditText) view;
+				String hours = hoursView.getText().toString();
             	if(hasFocus)
 				{
-					
+            		hoursView.setText(hours.replace(" hrs", ""));
+            		hoursView.selectAll();
 				}
 				else
 				{
-					EditText hoursView = (EditText) view;
-					hoursView.setText(hoursView.getText().append(" hrs"));
+					if(!hours.toString().contains("hrs"))
+						hoursView.setText(hours +" hrs");
 				}
             }
         };
