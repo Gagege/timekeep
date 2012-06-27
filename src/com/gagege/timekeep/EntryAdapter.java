@@ -29,13 +29,11 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 		Entry entry = items.get(position);
 		if (entry != null) {
 			TextView entryDate = (TextView) view.findViewById(R.id.entryDate);
-			TextView entryTitle = (TextView) view.findViewById(R.id.entryTitle);
-			if (entryDate != null) {
-				entryDate.setText(entry.prettyDate());
-			}
-			if(entryTitle != null) {
-				entryTitle.setText(entry.client() + ":" + entry.project());
-			}
+			TextView entryClient = (TextView) view.findViewById(R.id.entryClient);
+			TextView entryProject = (TextView) view.findViewById(R.id.entryProject);
+			entryDate.setText(entry.prettyDate());
+			entryClient.setText(entry.client());
+			entryProject.setText(entry.project());
 		}
 		return view;
 	}

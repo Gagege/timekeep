@@ -14,14 +14,15 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int button1=0x7f050007;
         public static final int cancelButton=0x7f050005;
         public static final int clientTextEdit=0x7f050003;
         public static final int dateTextEdit=0x7f050001;
+        public static final int deleteButton=0x7f050007;
         public static final int doneButton=0x7f050006;
+        public static final int entryClient=0x7f050009;
         public static final int entryDate=0x7f050008;
-        public static final int entryListView=0x7f05000a;
-        public static final int entryTitle=0x7f050009;
+        public static final int entryListView=0x7f05000b;
+        public static final int entryProject=0x7f05000a;
         public static final int hoursTextEdit=0x7f050000;
         public static final int notesTextEdit=0x7f050004;
         public static final int projectTextEdit=0x7f050002;
@@ -44,13 +45,15 @@ public final class R {
         public static final int cancel=0x7f040004;
         public static final int clientTitle=0x7f040009;
         public static final int dateTitle=0x7f040006;
-        public static final int defaultEntryDate=0x7f040005;
-        public static final int defaultEntryTitle=0x7f04000d;
+        public static final int defaultClient=0x7f04000d;
+        public static final int defaultDate=0x7f040005;
+        public static final int defaultProject=0x7f04000e;
         public static final int delete=0x7f04000c;
         public static final int done=0x7f04000a;
         public static final int hoursTitle=0x7f040007;
         public static final int notesTitle=0x7f04000b;
         public static final int projectTitle=0x7f040008;
+        public static final int red=0x7f04000f;
         public static final int removeEntry=0x7f040002;
     }
 }

@@ -10,20 +10,28 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
+
         <TextView
             android:id="@+id/entryDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/defaultEntryTitle"
-            android:textSize="10dp" />
-
+            android:text="@string/defaultDate"
+            android:textSize="10sp" />
+
         <TextView
-            android:id="@+id/entryTitle"
+            android:id="@+id/entryClient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/defaultEntryTitle"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:maxLines="2"
+            android:text="@string/defaultClient"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/entryProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/defaultProject" />
 
     </LinearLayout>
 
