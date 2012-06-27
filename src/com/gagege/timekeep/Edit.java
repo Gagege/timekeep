@@ -1,6 +1,8 @@
 package com.gagege.timekeep;
 
-import android.app.Activity;
+import java.text.DateFormat;
+import java.util.Date;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -53,5 +55,46 @@ public class Edit extends FragmentActivity {
 
 	private String hoursTextOnlyNumbers(String hours) {
 		return hours.replace(" hrs", "");
+	}
+
+	private void setupDateEdit() {
+		EditText date = (EditText)findViewById(R.id.dateTextEdit);
+        date.setText(DateFormat.getDateInstance().format(new Date()));
+	}
+	
+	public void deleteClick(View view) {
+		dataSource.open();
+		dataSource.deleteEntry(entry);
+		dataSource.close();
+		finish();
+	}
+	
+	public void cancelClick(View view) {
+		finish();
+	}
+	
+	public void doneClick(View view) {
+		Entry entry = new Entry();
+		entry.hours(hoursAsDouble());
+		entry.date(dateAsLong());
+		entry.project(((EditText)findViewById(R.id.projectTextEdit)).getText().toString());
+		entry.client(((EditText)findViewById(R.id.clientTextEdit)).getText().toString());
+		entry.notes(((EditText)findViewById(R.id.notesTextEdit)).getText().toString());
+		dataSource.open();
+		dataSource.createEntry(entry);
+		dataSource.close();
+		finish();
+	}
+	
+	private double hoursAsDouble() {
+		String hoursString = hoursTextOnlyNumbers(((EditText)findViewById(R.id.hoursTextEdit))
+				.getText().toString());
+		String stringToParse = ((hoursString.equals("")) ? "0" : hoursString);
+		return Double.parseDouble(stringToParse);
+	}
+	
+	private long dateAsLong() {
+		return (new Date(((EditText)findViewById(R.id.dateTextEdit))
+				.getText().toString())).getTime();
 	}
 }

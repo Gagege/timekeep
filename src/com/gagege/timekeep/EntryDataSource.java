@@ -51,7 +51,7 @@ public class EntryDataSource {
 		return newEntry;
 	}
 
-	public void deleteComment(Entry entry) {
+	public void deleteEntry(Entry entry) {
 		long id = entry.id();
 		System.out.println("Comment deleted with id: " + id);
 		database.delete(Database.ENTRIES_TABLE, Database.ID_COLUMN
