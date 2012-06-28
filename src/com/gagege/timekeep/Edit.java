@@ -11,7 +11,8 @@ import android.widget.EditText;
 
 public class Edit extends FragmentActivity {
 	
-    private static EntryDataSource dataSource;
+    private EntryDataSource dataSource;
+    private Entry entry; 
     
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,10 @@ public class Edit extends FragmentActivity {
         
         if(null == dataSource)
         	dataSource = new EntryDataSource(this);
+        
+        dataSource.open();
+        entry = dataSource.getEntryById(getIntent().getExtras().getLong("id"));
+        dataSource.close();
         
         setupHoursEdit();
         setupDateEdit();
@@ -59,7 +64,7 @@ public class Edit extends FragmentActivity {
 
 	private void setupDateEdit() {
 		EditText date = (EditText)findViewById(R.id.dateTextEdit);
-        date.setText(DateFormat.getDateInstance().format(new Date()));
+        date.setText(entry.prettyDate());
 	}
 	
 	public void deleteClick(View view) {
@@ -74,14 +79,13 @@ public class Edit extends FragmentActivity {
 	}
 	
 	public void doneClick(View view) {
-		Entry entry = new Entry();
 		entry.hours(hoursAsDouble());
 		entry.date(dateAsLong());
 		entry.project(((EditText)findViewById(R.id.projectTextEdit)).getText().toString());
 		entry.client(((EditText)findViewById(R.id.clientTextEdit)).getText().toString());
 		entry.notes(((EditText)findViewById(R.id.notesTextEdit)).getText().toString());
 		dataSource.open();
-		dataSource.createEntry(entry);
+		//dataSource.updateEntry(entry);
 		dataSource.close();
 		finish();
 	}

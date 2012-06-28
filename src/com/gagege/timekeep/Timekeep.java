@@ -36,6 +36,7 @@ public class Timekeep extends ListActivity {
 		      public void onItemClick(AdapterView<?> parent, View view,
 		          int position, long id) {
 		    	  Intent edit = new Intent(view.getContext(), Edit.class);
+		    	  edit.putExtra("id", id);
 		    	  startActivity(edit);
 		      }
         });

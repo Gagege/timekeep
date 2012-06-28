@@ -58,6 +58,15 @@ public class EntryDataSource {
 				+ " = " + id, null);
 	}
 	
+	public Entry getEntryById(long id) {
+		Cursor cursor = database.query(Database.ENTRIES_TABLE, allColumns, id + "",
+				null, null, null, null);
+		cursor.moveToFirst();
+		Entry entry = cursorToEntry(cursor);
+		cursor.close();
+		return entry;
+	}
+	
 	public List<Entry> getAllEntries() {
 		List<Entry> entries = new ArrayList<Entry>();
 
