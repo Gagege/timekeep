@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
 
 public class Timekeep extends ListActivity {
@@ -35,6 +36,7 @@ public class Timekeep extends ListActivity {
         lv.setOnItemClickListener(new OnItemClickListener() {
 		      public void onItemClick(AdapterView<?> parent, View view,
 		          int position, long id) {
+		    	  String id = (EditText)view.findViewById(R.id.entryDate).getText();
 		    	  Intent edit = new Intent(view.getContext(), Edit.class);
 		    	  edit.putExtra("id", id);
 		    	  startActivity(edit);

@@ -1,6 +1,5 @@
 package com.gagege.timekeep;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 import android.os.Bundle;

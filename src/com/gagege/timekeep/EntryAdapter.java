@@ -31,7 +31,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 			TextView entryDate = (TextView) view.findViewById(R.id.entryDate);
 			TextView entryClient = (TextView) view.findViewById(R.id.entryClient);
 			TextView entryProject = (TextView) view.findViewById(R.id.entryProject);
-			entryDate.setText(entry.prettyDate());
+			entryDate.setText(entry.id() + " - " + entry.prettyDate());
 			entryClient.setText(entry.client());
 			entryProject.setText(entry.project());
 		}
