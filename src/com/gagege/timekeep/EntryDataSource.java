@@ -53,13 +53,24 @@ public class EntryDataSource {
 
 	public void deleteEntry(Entry entry) {
 		long id = entry.id();
-		System.out.println("Comment deleted with id: " + id);
-		database.delete(Database.ENTRIES_TABLE, Database.ID_COLUMN
-				+ " = " + id, null);
+		database.delete(Database.ENTRIES_TABLE,
+				Database.ID_COLUMN + " = " + id, null);
+	}
+	
+	public void updateEntry(Entry entry) {
+		ContentValues values = new ContentValues();
+		values.put(Database.HOURS_COLUMN, entry.hours());
+		values.put(Database.DATE_COLUMN, entry.date());
+		values.put(Database.PROJECT_COLUMN, entry.project());
+		values.put(Database.CLIENT_COLUMN, entry.client());
+		values.put(Database.NOTES_COLUMN, entry.notes());
+		database.update(Database.ENTRIES_TABLE, values,
+				Database.ID_COLUMN + "=" + entry.id(), null);
 	}
 	
 	public Entry getEntryById(long id) {
-		Cursor cursor = database.query(Database.ENTRIES_TABLE, allColumns, id + "",
+		Cursor cursor = database.query(Database.ENTRIES_TABLE, allColumns,
+				Database.ID_COLUMN + " = " + id,
 				null, null, null, null);
 		cursor.moveToFirst();
 		Entry entry = cursorToEntry(cursor);

@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.ListView;
 
 public class Timekeep extends ListActivity {
@@ -30,19 +29,22 @@ public class Timekeep extends ListActivity {
         if(null == dataSource)
         	dataSource = new EntryDataSource(this);
         
-        ListView lv = getListView();
-        lv.setTextFilterEnabled(true);
+        setupListItemClick();
+    }
 
+	private void setupListItemClick() {
+		ListView lv = getListView();
+        lv.setTextFilterEnabled(true);
         lv.setOnItemClickListener(new OnItemClickListener() {
 		      public void onItemClick(AdapterView<?> parent, View view,
 		          int position, long id) {
-		    	  String id = (EditText)view.findViewById(R.id.entryDate).getText();
+		    	  long entryId = dataAdapter.getItem((int)id).id();
 		    	  Intent edit = new Intent(view.getContext(), Edit.class);
-		    	  edit.putExtra("id", id);
+		    	  edit.putExtra("id", entryId);
 		    	  startActivity(edit);
 		      }
         });
-    }
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -72,9 +74,9 @@ public class Timekeep extends ListActivity {
     }
 	
 	private void entriesToArrayAdapter(List<Entry> entries) {
+		dataAdapter.clear();
 		for(Entry entry : entries) {
-			if(!dataAdapter.hasItem(entry.id()))
-				dataAdapter.add(entry);
+			dataAdapter.add(entry);
 		}
 	}
 	

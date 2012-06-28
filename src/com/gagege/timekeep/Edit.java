@@ -27,6 +27,10 @@ public class Edit extends FragmentActivity {
         
         setupHoursEdit();
         setupDateEdit();
+        setupProjectEdit();
+        setupClientEdit();
+        setupNotesEdit();
+        
     }
 	
 	private void setupHoursEdit() {
@@ -55,6 +59,7 @@ public class Edit extends FragmentActivity {
             }
         };
         hours.setOnFocusChangeListener(focusListener);
+        hours.setText(entry.hours() + "");
 	}
 
 	private String hoursTextOnlyNumbers(String hours) {
@@ -64,6 +69,21 @@ public class Edit extends FragmentActivity {
 	private void setupDateEdit() {
 		EditText date = (EditText)findViewById(R.id.dateTextEdit);
         date.setText(entry.prettyDate());
+	}
+
+	private void setupProjectEdit() {
+		EditText project = (EditText)findViewById(R.id.projectTextEdit);
+        project.setText(entry.project());
+	}
+
+	private void setupClientEdit() {
+		EditText client = (EditText)findViewById(R.id.clientTextEdit);
+		client.setText(entry.client());
+	}
+
+	private void setupNotesEdit() {
+		EditText notes = (EditText)findViewById(R.id.notesTextEdit);
+		notes.setText(entry.notes());
 	}
 	
 	public void deleteClick(View view) {
@@ -84,7 +104,7 @@ public class Edit extends FragmentActivity {
 		entry.client(((EditText)findViewById(R.id.clientTextEdit)).getText().toString());
 		entry.notes(((EditText)findViewById(R.id.notesTextEdit)).getText().toString());
 		dataSource.open();
-		//dataSource.updateEntry(entry);
+		dataSource.updateEntry(entry);
 		dataSource.close();
 		finish();
 	}
