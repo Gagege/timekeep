@@ -3,6 +3,7 @@ package com.gagege.timekeep;
 import java.util.Date;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -64,6 +65,11 @@ public class Edit extends FragmentActivity {
 
 	private String hoursTextOnlyNumbers(String hours) {
 		return hours.replace(" hrs", "");
+	}
+	
+	public void showDatePickerDialog(View view) {
+		DialogFragment newFragment = new DatePickerFragment((EditText)findViewById(R.id.dateTextEdit));
+	    newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
 
 	private void setupDateEdit() {
