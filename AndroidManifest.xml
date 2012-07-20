@@ -8,7 +8,9 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/applicationName" android:debuggable="true">
+        android:label="@string/applicationName"
+        android:debuggable="true"
+        android:theme="@style/Theme.Sherlock">
         <activity
             android:name=".Timekeep"
             android:label="@string/applicationName" >
