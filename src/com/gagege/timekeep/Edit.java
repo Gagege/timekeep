@@ -2,14 +2,15 @@ package com.gagege.timekeep;
 
 import java.util.Date;
 
+import com.actionbarsherlock.app.SherlockDialogFragment;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 
-public class Edit extends FragmentActivity {
+public class Edit extends SherlockFragmentActivity {
 	
     private EntryDataSource dataSource;
     private Entry entry; 
@@ -68,7 +69,7 @@ public class Edit extends FragmentActivity {
 	}
 	
 	public void showDatePickerDialog(View view) {
-		DialogFragment newFragment = new DatePickerFragment((EditText)findViewById(R.id.dateTextEdit));
+		SherlockDialogFragment newFragment = new DatePickerFragment((EditText)findViewById(R.id.dateTextEdit));
 	    newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
 
