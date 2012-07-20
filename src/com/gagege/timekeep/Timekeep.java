@@ -2,18 +2,19 @@ package com.gagege.timekeep;
 
 import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class Timekeep extends ListActivity {
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+public class Timekeep extends SherlockListActivity {
     private static final int ADD_ITEM = 0;
     private static final int REMOVE_ITEM = 1;
 

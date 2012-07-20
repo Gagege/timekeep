@@ -3,14 +3,15 @@ package com.gagege.timekeep;
 import java.text.DateFormat;
 import java.util.Date;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 
-public class Create extends FragmentActivity {
+public class Create extends SherlockFragmentActivity {
 	
     private static EntryDataSource dataSource;
     
