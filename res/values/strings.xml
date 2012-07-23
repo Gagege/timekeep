@@ -25,4 +25,6 @@
     <string name="save">Save</string>
     <color name="red">#ff0000</color>
     <string name="sync">Sync</string>
+    <string name="serverTitle">Server</string>
+    <string name="keyTitle">Key</string>
 </resources>
