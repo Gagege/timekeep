@@ -12,12 +12,6 @@
         android:icon="@android:drawable/ic_menu_delete"
         android:showAsAction="ifRoom" 
         android:onClick="deleteClick"></item>
-    <item
-        android:id="@+id/cancel"
-        android:title="@string/cancel"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:showAsAction="ifRoom" 
-        android:onClick="cancelClick"></item>
     
     
 

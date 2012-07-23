@@ -5,11 +5,6 @@
         android:title="@string/save"
         android:icon="@android:drawable/ic_menu_save"
         android:showAsAction="ifRoom" android:onClick="doneClick"></item>
-    <item
-        android:id="@+id/cancel"
-        android:title="@string/cancel"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:showAsAction="ifRoom" android:onClick="cancelClick"></item>
     
 
 </menu>

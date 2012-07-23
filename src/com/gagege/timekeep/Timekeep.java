@@ -18,6 +18,7 @@ public class Timekeep extends SherlockListActivity {
 
     private static EntryAdapter dataAdapter;
     private static EntryDataSource dataSource;
+    private static List<Entry> entries;
     
     /** Called when the activity is first created. */
     @Override
@@ -33,23 +34,24 @@ public class Timekeep extends SherlockListActivity {
 	
 	@Override
 	protected void onResume() {
-		fillEntries();
         super.onResume();
+		fillEntries();
 	}
 	
 	private void fillEntries() {
         dataSource.open();
-        List<Entry> entries = dataSource.getAllEntries();
+        entries = dataSource.getAllEntries();
         dataSource.close();
-
+        
         if(null == dataAdapter)
-        	dataAdapter = new EntryAdapter(this, R.layout.item,entries);
+        	dataAdapter = new EntryAdapter(this, R.layout.item, entries);
         else
-    		dataAdapter.clear();
+        {
+        	dataAdapter.clear();
+        	entriesToArrayAdapter(entries);
+        }
         
         setListAdapter(dataAdapter);
-        
-        entriesToArrayAdapter(entries);
 	}
 
 	private void setupListItemClick() {

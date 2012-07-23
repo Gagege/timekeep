@@ -95,10 +95,6 @@ public class Create extends SherlockFragmentActivity {
 	    newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
 	
-	public void cancelClick(MenuItem item) {
-		finish();
-	}
-	
 	public void doneClick(MenuItem item) {
 		Entry entry = new Entry();
 		entry.hours(hoursAsDouble());
