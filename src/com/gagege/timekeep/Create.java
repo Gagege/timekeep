@@ -3,6 +3,10 @@ package com.gagege.timekeep;
 import java.text.DateFormat;
 import java.util.Date;
 
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 import android.os.Bundle;
@@ -20,11 +24,33 @@ public class Create extends SherlockFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create);
         
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        
         if(null == dataSource)
         	dataSource = new EntryDataSource(this);
         
         setupHoursEdit();
         setupDateEdit();
+    }
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getSupportMenuInflater();
+	    inflater.inflate(R.menu.createmenu, menu);
+	    return true;
+	}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+	        case android.R.id.home:
+	        	finish();
+	        	return true;
+        }
+		return false;
     }
 
 	private void setupHoursEdit() {
@@ -69,11 +95,11 @@ public class Create extends SherlockFragmentActivity {
 	    newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
 	
-	public void cancelClick(View view) {
+	public void cancelClick(MenuItem item) {
 		finish();
 	}
 	
-	public void doneClick(View view) {
+	public void doneClick(MenuItem item) {
 		Entry entry = new Entry();
 		entry.hours(hoursAsDouble());
 		entry.date(dateAsLong());

@@ -83,33 +83,5 @@
         android:ems="10"
         android:hint="@string/notesTitle"
         android:inputType="textMultiLine" android:gravity="top"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right" >
-
-        <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="deleteClick"
-            android:text="@string/delete" />
-
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="cancelClick"
-            android:text="@string/cancel" />
-
-        <Button
-            android:id="@+id/doneButton"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:onClick="doneClick"
-            android:text="@string/done" />
-
-    </LinearLayout>
 
 </LinearLayout>

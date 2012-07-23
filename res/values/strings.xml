@@ -21,5 +21,8 @@
     <string name="delete">Delete</string>
     <string name="defaultClient">Client</string>
     <string name="defaultProject">This Is a Loooooooooooooooooooooooooooooooooooooooooooooooong Project Name</string>
-    <string name="red">#ff0000</string>
+    <string name="help">Help</string>
+    <string name="save">Save</string>
+    <color name="red">#ff0000</color>
+    <string name="sync">Sync</string>
 </resources>

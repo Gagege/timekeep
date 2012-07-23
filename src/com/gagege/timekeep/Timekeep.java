@@ -3,7 +3,6 @@ package com.gagege.timekeep;
 import java.util.List;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,11 +11,10 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 public class Timekeep extends SherlockListActivity {
-    private static final int ADD_ITEM = 0;
-    private static final int REMOVE_ITEM = 1;
 
     private static EntryAdapter dataAdapter;
     private static EntryDataSource dataSource;
@@ -27,11 +25,32 @@ public class Timekeep extends SherlockListActivity {
     {
         super.onCreate(savedInstanceState);
         
+        setupListItemClick();
+        
         if(null == dataSource)
         	dataSource = new EntryDataSource(this);
-        
-        setupListItemClick();
     }
+	
+	@Override
+	protected void onResume() {
+		fillEntries();
+        super.onResume();
+	}
+	
+	private void fillEntries() {
+        dataSource.open();
+        List<Entry> entries = dataSource.getAllEntries();
+        dataSource.close();
+
+        if(null == dataAdapter)
+        	dataAdapter = new EntryAdapter(this, R.layout.item,entries);
+        else
+    		dataAdapter.clear();
+        
+        setListAdapter(dataAdapter);
+        
+        entriesToArrayAdapter(entries);
+	}
 
 	private void setupListItemClick() {
 		ListView lv = getListView();
@@ -47,53 +66,33 @@ public class Timekeep extends SherlockListActivity {
         });
 	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        Resources resource = getApplicationContext().getResources();
-        menu.add(Menu.NONE, ADD_ITEM, ADD_ITEM,
-            resource.getText(R.string.addEntry)).setIcon(android.R.drawable.ic_input_add);
-        menu.add(Menu.NONE, REMOVE_ITEM, REMOVE_ITEM,
-            resource.getText(R.string.removeEntry)).setIcon(android.R.drawable.ic_input_delete);
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getSupportMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	    return true;
+	}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId())
         {
-        case ADD_ITEM:
+        case R.id.new_entry:
         	Intent create = new Intent(this.getBaseContext(), Create.class);
         	startActivity(create);
+            return true;
+        case R.id.help:
             break;
-        case REMOVE_ITEM:
-            dataAdapter.remove(dataAdapter.getItem(dataAdapter.getCount() - 1));
-            break;
+        default:
+            return super.onOptionsItemSelected(item);
         }
-        return false;
+		return false;
     }
 	
 	private void entriesToArrayAdapter(List<Entry> entries) {
-		dataAdapter.clear();
 		for(Entry entry : entries) {
 			dataAdapter.add(entry);
 		}
-	}
-	
-	@Override
-	protected void onResume() {
-        dataSource.open();
-        List<Entry> entries = dataSource.getAllEntries();
-        dataSource.close();
-
-        if(null == dataAdapter)
-        	dataAdapter = new EntryAdapter(this, R.layout.item,entries);
-        
-        setListAdapter(dataAdapter);
-        
-        entriesToArrayAdapter(entries);
-        
-        super.onResume();
 	}
 }
