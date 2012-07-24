@@ -697,6 +697,9 @@ containing a value of this type.
  Minimum width for an action button in the menu area of an action bar 
          */
         public static final int action_button_min_width=0x7f07000b;
+        public static final int padding_large=0x7f07000e;
+        public static final int padding_medium=0x7f07000d;
+        public static final int padding_small=0x7f07000c;
     }
     public static final class drawable {
         public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -784,7 +787,8 @@ containing a value of this type.
         public static final int abs__tab_selected_holo=0x7f020052;
         public static final int abs__tab_selected_pressed_holo=0x7f020053;
         public static final int abs__tab_unselected_pressed_holo=0x7f020054;
-        public static final int ic_launcher=0x7f020055;
+        public static final int ic_action_search=0x7f020055;
+        public static final int ic_launcher=0x7f020056;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040022;
@@ -879,6 +883,7 @@ containing a value of this type.
         public static final int createmenu=0x7f0b0000;
         public static final int editmenu=0x7f0b0001;
         public static final int menu=0x7f0b0002;
+        public static final int settings=0x7f0b0003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -927,15 +932,18 @@ containing a value of this type.
         public static final int defaultProject=0x7f090018;
         public static final int delete=0x7f090016;
         public static final int done=0x7f090014;
+        public static final int hello_world=0x7f09001e;
         public static final int help=0x7f090019;
         public static final int hoursTitle=0x7f090011;
         public static final int keyTitle=0x7f09001d;
+        public static final int menu_settings=0x7f09001f;
         public static final int notesTitle=0x7f090015;
         public static final int projectTitle=0x7f090012;
         public static final int removeEntry=0x7f09000c;
         public static final int save=0x7f09001a;
         public static final int serverTitle=0x7f09001c;
         public static final int sync=0x7f09001b;
+        public static final int title_activity_settings=0x7f090020;
     }
     public static final class style {
         public static final int DialogWindowTitle_Sherlock=0x7f0a0033;

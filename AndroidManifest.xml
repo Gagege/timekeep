@@ -4,13 +4,15 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="16" />
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="16" />
 
     <application
+        android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/applicationName"
-        android:debuggable="true"
-        android:theme="@style/Theme.Sherlock">
+        android:theme="@style/Theme.Sherlock" >
         <activity
             android:name=".Timekeep"
             android:label="@string/applicationName" >
@@ -20,8 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Edit"></activity>
-        <activity android:name=".Create"></activity>
+        <activity android:name=".Edit" >
+        </activity>
+        <activity android:name=".Create" >
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gagege.timekeep.Timekeep" />
+        </activity>
     </application>
 
 </manifest>
