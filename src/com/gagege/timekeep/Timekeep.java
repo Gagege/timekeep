@@ -84,6 +84,10 @@ public class Timekeep extends SherlockListActivity {
         	Intent create = new Intent(this.getBaseContext(), Create.class);
         	startActivity(create);
             return true;
+        case R.id.settings:
+        	Intent settings = new Intent(this.getBaseContext(), Settings.class);
+        	startActivity(settings);
+            return true;
         case R.id.help:
             break;
         default:

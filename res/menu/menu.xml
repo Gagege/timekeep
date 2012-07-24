@@ -8,6 +8,8 @@
           android:icon="@android:drawable/ic_menu_rotate"
           android:title="@string/sync"
           android:showAsAction="ifRoom"/>
+    <item android:id="@+id/settings"
+          android:title="@string/settings" />
     <item android:id="@+id/help"
           android:icon="@android:drawable/ic_menu_help"
           android:title="@string/help" />
