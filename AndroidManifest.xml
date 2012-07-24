@@ -9,7 +9,6 @@
         android:targetSdkVersion="16" />
 
     <application
-        android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/applicationName"
         android:theme="@style/Theme.Sherlock" >
@@ -28,7 +27,7 @@
         </activity>
         <activity
             android:name=".Settings"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/settings" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gagege.timekeep.Timekeep" />

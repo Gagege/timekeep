@@ -828,7 +828,7 @@ containing a value of this type.
         public static final int entryDate=0x7f04002c;
         public static final int entryListView=0x7f04002f;
         public static final int entryProject=0x7f04002e;
-        public static final int help=0x7f040036;
+        public static final int help=0x7f040037;
         public static final int homeAsUp=0x7f040006;
         public static final int hoursTextEdit=0x7f040027;
         public static final int keyTextEdit=0x7f040031;
@@ -839,6 +839,7 @@ containing a value of this type.
         public static final int projectTextEdit=0x7f040029;
         public static final int save=0x7f040032;
         public static final int serverTextEdit=0x7f040030;
+        public static final int settings=0x7f040036;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
@@ -942,8 +943,8 @@ containing a value of this type.
         public static final int removeEntry=0x7f09000c;
         public static final int save=0x7f09001a;
         public static final int serverTitle=0x7f09001c;
+        public static final int settings=0x7f090020;
         public static final int sync=0x7f09001b;
-        public static final int title_activity_settings=0x7f090020;
     }
     public static final class style {
         public static final int DialogWindowTitle_Sherlock=0x7f0a0033;
