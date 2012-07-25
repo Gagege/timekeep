@@ -1,6 +1,10 @@
 package com.gagege.timekeep;
 
+import java.lang.reflect.Type;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +17,8 @@ import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class Timekeep extends SherlockListActivity {
 
@@ -84,6 +90,17 @@ public class Timekeep extends SherlockListActivity {
         	Intent create = new Intent(this.getBaseContext(), Create.class);
         	startActivity(create);
             return true;
+        case R.id.sync:
+        	try {
+				sync();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+        	return true;
         case R.id.settings:
         	Intent settings = new Intent(this.getBaseContext(), Settings.class);
         	startActivity(settings);
@@ -94,6 +111,14 @@ public class Timekeep extends SherlockListActivity {
             return super.onOptionsItemSelected(item);
         }
 		return false;
+    }
+    
+    private void sync() throws InterruptedException, ExecutionException, MalformedURLException{
+    	URL events = new URL("/events");
+    	String entriesJson = new SyncTask().execute(events).get();
+    	Gson gson = new Gson();
+    	Type entriesType = new TypeToken<List<Entry>>(){}.getType();
+    	List<Entry> entries = gson.fromJson(entriesJson,  entriesType);
     }
 	
 	private void entriesToArrayAdapter(List<Entry> entries) {
