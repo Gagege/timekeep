@@ -4,12 +4,12 @@ import java.net.URL;
 import com.gagege.timekeep.RestClient.RequestMethod;
 import android.os.AsyncTask;
 
-public class SyncTask extends AsyncTask<URL, Integer, String> {
+public class SyncTask extends AsyncTask<String, Integer, String> {
 
 	@Override
-	protected String doInBackground(URL... params) {
+	protected String doInBackground(String... params) {
 		
-		return callService(params[0]);
+		return callService(params);
 	}
 	
 	protected void onPostExecute(String result)
@@ -18,9 +18,9 @@ public class SyncTask extends AsyncTask<URL, Integer, String> {
 	}
 
 
-	private String callService(URL... url) {
-		String baseurlString = "/api";
-		RestClient client = new RestClient(baseurlString + url);
+	private String callService(String... url) {
+		String baseurlString = "http://96.2.65.101:3000/";
+		RestClient client = new RestClient(baseurlString + url[0]);
 		
 		try
 		{

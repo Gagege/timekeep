@@ -114,8 +114,7 @@ public class Timekeep extends SherlockListActivity {
     }
     
     private void sync() throws InterruptedException, ExecutionException, MalformedURLException{
-    	URL events = new URL("/events");
-    	String entriesJson = new SyncTask().execute(events).get();
+    	String entriesJson = new SyncTask().execute("entries").get();
     	Gson gson = new Gson();
     	Type entriesType = new TypeToken<List<Entry>>(){}.getType();
     	List<Entry> entries = gson.fromJson(entriesJson,  entriesType);
